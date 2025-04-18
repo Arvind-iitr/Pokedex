@@ -89,7 +89,8 @@ export const signout = async (req, res) => {
 //send otp route to send otp to user's registered email
 export const sendOtp = async (req, res) => {
   try {
-    const { userID } = req.body;
+    // const { userID } = req.body;
+    const userID = res.locals.userId;
     const user = await User.findById(userID);
 
     if (user.isverified) {
@@ -120,7 +121,9 @@ export const sendOtp = async (req, res) => {
 //verify otp route to verify the otp sent to user's registered email
 export const verifyOtp = async (req, res) => {
   try {
-    const { userID, otp } = req.body;
+    // const { userID, otp } = req.body;
+    const userID = res.locals.userId;
+    const otp = req.body.otp;
 
     const user = await User.findById(userID);
 
@@ -137,19 +140,7 @@ export const verifyOtp = async (req, res) => {
       user.otp = null;
       user.otpValidity = null;
       await user.save();
-
-      const token = jwt.sign({ id: user._id }, process.env.SECRET, {
-        expiresIn: "3d",
-      }); // Generate a JWT token for the user using id and expiration time of 3 days
-  
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: process.env.MODE === "production", // Set secure flag to true when running in production mode
-        sameSite: process.env.MODE === "production" ? "none" : "strict", // Set SameSite to 'none' when running in production mode or 'strict' when running in development mode
-        maxAge: 3 * 24 * 60 * 60 * 1000, // Expire in 3 days
-      });
-
-
+      
       res.status(200).json({ message: "OTP verified successfully" });
     } else {
       res.status(400).json({ message: "Invalid OTP" }); //invalid otp

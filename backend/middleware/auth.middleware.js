@@ -11,7 +11,7 @@ export const userAuthenticate = async(req, res, next) => {
 
       if(decodedToken.id)
       {
-        req.body.userID = decodedToken.id; //sending user id in the body
+        res.locals.userId = decodedToken.id; //sending user id in the body
       }
       else{
         return res.status(401).json({ message: 'Invalid token' });
