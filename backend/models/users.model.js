@@ -28,12 +28,12 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default : null
     },
-    resetpassotp : {
+    resetOtp : {
         type: String,
         default : null
     }
     ,
-    resetpassValidity : {
+    resetOtpValidity : {
         type: Number,
         default : null
     }

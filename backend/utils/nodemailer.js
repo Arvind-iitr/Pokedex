@@ -163,3 +163,81 @@ export const generateOTPEmail = (username, otp) => `<!DOCTYPE html>
   </div>
 </body>
 </html>`;
+
+
+export const generateResetPasswordEmail = (username, otp) => `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PokéVerse - Reset Password OTP</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1a1a1a;
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .header {
+      background-color: #1E90FF;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .header img {
+      width: 80px;
+    }
+    .content {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .content h1 {
+      color: #FFD700;
+    }
+    .otp-box {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 15px 25px;
+      background-color: #FFD700;
+      color: #000;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 10px;
+      letter-spacing: 4px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="PokéLogo" />
+      <h2>PokéVerse Password Reset</h2>
+    </div>
+    <div class="content">
+      <h1>Hey <span style="color: #1E90FF;">${username}</span>,</h1>
+      <p>We received a request to reset your password. Use the OTP below to proceed:</p>
+      <div class="otp-box">${otp}</div>
+      <p>This OTP is valid for only a few minutes. If you didn’t request this, you can ignore this email.</p>
+      <div class="footer">
+        <p>Stay secure, Trainer.</p>
+        <p>© 2025 PokéVerse. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+`;
