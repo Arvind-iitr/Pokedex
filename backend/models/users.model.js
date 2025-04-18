@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         default : null
     },
     otpValidity : {
-        type: Date,
+        type: Number,
         default : null
     },
     resetpassotp : {
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     }
     ,
     resetpassValidity : {
-        type: Date,
+        type: Number,
         default : null
     }
 })

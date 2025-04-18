@@ -87,3 +87,79 @@ export const generateWelcomeEmail = (username) => `
 </body>
 </html>
 `;
+
+export const generateOTPEmail = (username, otp) => `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Your PokéVerse OTP</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1a1a1a;
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .header {
+      background-color: #1E90FF;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .header img {
+      width: 80px;
+    }
+    .content {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .content h1 {
+      color: #FFD700;
+    }
+    .otp-box {
+      display: inline-block;
+      background-color: #FFD700;
+      color: #000;
+      padding: 15px 25px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-top: 20px;
+      letter-spacing: 3px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #aaa;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="PokéLogo" />
+      <h2>PokéVerse OTP Verification</h2>
+    </div>
+    <div class="content">
+      <h1>Hi <span style="color: #1E90FF;">${username}</span>!</h1>
+      <p>Your one-time password (OTP) for verifying your email address is:</p>
+      <div class="otp-box">${otp}</div>
+      <p style="margin-top: 20px;">This OTP is valid for the next 10 minutes. Please do not share it with anyone.</p>
+      <div class="footer">
+        <p>If you didn’t request this, you can safely ignore this email.</p>
+        <p>© 2025 PokéVerse. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`;
