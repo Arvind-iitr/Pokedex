@@ -76,3 +76,10 @@ export const login = async (req, res) => {
     }
 }
 
+
+//signout route to clear the token
+
+export const signout = async (req, res) => {
+    res.clearCookie('token', { path: '/' }); //clear the token from the response cookie
+    res.json({ message: 'User signed out successfully' });
+}
