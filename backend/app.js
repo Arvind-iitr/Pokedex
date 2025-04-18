@@ -6,7 +6,8 @@ import cookieParser from 'cookie-parser';
 
 import connectDB from './config/db.js';
 
-import router from './routes/auth.routes.js'; // Import user routes
+import authRouter from './routes/auth.routes.js'; // Import auth routes
+import userRouter from './routes/user.routes.js'; // Import user routes
 
 const app = express();
 
@@ -19,13 +20,15 @@ connectDB(); // Connect to MongoDB database
 app.use(cors()); // Enable CORS for all requests
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello,this is our homepage!');
 })
 
 // Import routes
-app.use('/api/users', router);
+app.use('/api/auth', authRouter);
+app.use("/api/user" , userRouter)
 
 
 

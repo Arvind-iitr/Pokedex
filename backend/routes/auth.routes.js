@@ -3,15 +3,15 @@ import {isAuth, login, resetPassword, sendOtp, sendResetOtp, signout, signup, ve
 import { userAuthenticate } from '../middleware/auth.middleware.js';
 
 
-const router = express.Router();
+const authRouter = express.Router();
 
-router.post("/signup", signup);
-router.post("/login", login);
-router.post("/signout", signout);
-router.post("/send-otp" , userAuthenticate, sendOtp); //using the authenticate middleware to protect these route
-router.post("/verify-otp", userAuthenticate,  verifyOtp);
-router.post("/isauth", userAuthenticate, isAuth); 
-router.post("/send-reset-otp", sendResetOtp); 
-router.post("/reset-password", resetPassword); 
+authRouter.post("/signup", signup);
+authRouter.post("/login", login);
+authRouter.post("/signout", signout);
+authRouter.post("/send-otp" , userAuthenticate, sendOtp); //using the authenticate middleware to protect these route
+authRouter.post("/verify-otp", userAuthenticate,  verifyOtp);
+authRouter.post("/isauth", userAuthenticate, isAuth); 
+authRouter.post("/send-reset-otp", sendResetOtp); 
+authRouter.post("/reset-password", resetPassword); 
 
-export default router;
+export default authRouter;

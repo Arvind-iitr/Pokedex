@@ -62,13 +62,6 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid password" });
     }
 
-    if (!user.isverified) {
-      return res
-        .status(403)
-        .json({
-          message: "Email not verified. Please verify your account to log in.",
-        });
-    }
 
     const token = jwt.sign({ id: user._id }, process.env.SECRET, {
       expiresIn: "3d",
@@ -105,7 +98,7 @@ export const sendOtp = async (req, res) => {
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString(); //generate a random 6-digit otp
     user.otp = otp;
-    user.otpValidity = Date.now() + 10 * 60 * 1000; //set otp validity to 10 minutes
+    user.otpValidity = Date.now() + 30 * 60 * 1000; //set otp validity to 30 minutes
 
     await user.save();
 
@@ -144,6 +137,19 @@ export const verifyOtp = async (req, res) => {
       user.otp = null;
       user.otpValidity = null;
       await user.save();
+
+      const token = jwt.sign({ id: user._id }, process.env.SECRET, {
+        expiresIn: "3d",
+      }); // Generate a JWT token for the user using id and expiration time of 3 days
+  
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: process.env.MODE === "production", // Set secure flag to true when running in production mode
+        sameSite: process.env.MODE === "production" ? "none" : "strict", // Set SameSite to 'none' when running in production mode or 'strict' when running in development mode
+        maxAge: 3 * 24 * 60 * 60 * 1000, // Expire in 3 days
+      });
+
+
       res.status(200).json({ message: "OTP verified successfully" });
     } else {
       res.status(400).json({ message: "Invalid OTP" }); //invalid otp
@@ -172,17 +178,10 @@ export const sendResetOtp = async (req, res) => {
       res.status(404).json({ message: "User not found" }); //user not found
     }
 
-    if (!user.isverified) {
-      return res
-        .status(403)
-        .json({
-          message: "Email not verified. Please verify your account first.",
-        });
-    }
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString(); //generate a random 6-digit otp
     user.resetOtp = otp;
-    user.resetOtpValidity = Date.now() + 10 * 60 * 1000; //set otp validity to 10 minutes
+    user.resetOtpValidity = Date.now() + 30 * 60 * 1000; //set otp validity to 10 minutes
     await user.save();
 
     const emailObject = {
@@ -228,3 +227,5 @@ export const resetPassword = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
