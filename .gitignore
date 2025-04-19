@@ -1,2 +1,41 @@
+# Backend
 /backend/node_modules
 /backend/.env
+
+# Frontend
+/frontend/node_modules
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+# Logs
+/frontend/logs
+/frontend/*.log
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/pnpm-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite build output
+/frontend/dist
+/frontend/dist-ssr
+
+# Testing
+/frontend/coverage
+
+# Misc
+/frontend/.cache
+/frontend/.temp
