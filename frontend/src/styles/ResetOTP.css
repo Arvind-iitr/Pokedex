@@ -1,0 +1,96 @@
+.reset-page {
+    height: 100vh;
+    background-color: #1c1b2f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .reset-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 400px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .reset-title {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px #00000050;
+  }
+  
+  .reset-subtext {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .reset-form .form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+  
+  .reset-form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    color: #f0f0f0;
+  }
+  
+  .reset-form input {
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .reset-form input::placeholder {
+    color: #bbb;
+  }
+  
+  .reset-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #ffd700;
+    color: #1c1b2f;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .reset-button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+  }
+  
+  .reset-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  
+  .reset-footer a {
+    color: #ffd700;
+    text-decoration: none;
+  }
+  
+  .reset-footer a:hover {
+    text-decoration: underline;
+  }
+  
