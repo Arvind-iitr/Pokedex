@@ -1,0 +1,1 @@
+//helper function to make the code more cleaner

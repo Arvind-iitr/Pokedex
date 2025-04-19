@@ -1,0 +1,17 @@
+#root{
+    margin: 0;
+    padding: 0;;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+  }
+
+  /*
+    outline: 1px solid red; /* Helps spot rogue elements */
+
+
+  

@@ -1,11 +1,25 @@
-import './App.css'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import "./App.css";
+import { Login } from './pages/Login';
+
+
+// import { PokemonChart } from "../Charts/PokemonChart";
+
 
 function App() {
-  return (
-    <>
-     <div>hello world</div>
-    </>
-  )
+  const router = createBrowserRouter([
+
+    {
+      path: "/",
+      element: <Login/>
+   
+    } 
+
+
+    
+  ])
+
+  return <RouterProvider router={router}/>
 }
 
-export default App
+export default App;
