@@ -16,6 +16,9 @@ export const signup = async (req, res) => {
 
     const hashPassword = await bcrypt.hash(password, 10); // Hash the password before storing it
 
+    const user = await User.findOne({ email }); //check if user already exists
+    if (user) return res.json({ success : false , message: "Email already exists" }); //user already exists
+
     // Save the user to the database
     const newUser = new User({ username, email, password: hashPassword });
     await newUser.save();
@@ -40,9 +43,9 @@ export const signup = async (req, res) => {
 
     await transporter.sendMail(emailObject); //sending the email via nodemailer
 
-    res.status(201).json({ message: "User created successfully" });
+    res.json({ success: true , message: "User created successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.json({success:false , message: error.message });
   }
 };
 

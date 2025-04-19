@@ -38,6 +38,7 @@
   
   .form-group {
     text-align: left;
+    position: relative;
   }
   
   label {
@@ -96,4 +97,12 @@
   .signup-footer a:hover {
     text-decoration: underline;
   }
+  
+ 
+  .eye{
+    position: absolute;
+    top: 55%;
+    left: 97%;
+  }
+
   

@@ -5,6 +5,7 @@ import { Signup } from './pages/SignUp';
 import { VerifyOTP } from './pages/VerifyOTP';
 import { ResetOTP } from './pages/ResetOTP';
 import { ResetPassword } from './pages/ResetPassword';
+import { Home } from './pages/Home';
 
 
 // import { PokemonChart } from "../Charts/PokemonChart";
@@ -15,9 +16,34 @@ function App() {
 
     {
       path: "/",
-      element: <ResetPassword/>
+      element: <Home/>
    
     } 
+    ,
+    {
+      path: "/login",
+      element: <Login/>
+    },
+
+    {
+      path: "/signup",
+      element: <Signup/>
+    },
+
+    { 
+      path: "/verify-otp",
+      element: <VerifyOTP/>
+    }
+    ,
+    {
+      path: "/reset-otp",
+      element: <ResetOTP/>
+    }
+    ,
+    {
+      path: "/reset-password",
+      element: <ResetPassword/>
+    }
 
 
     

@@ -2,8 +2,10 @@
 //also present some pokmons and their details
 import React from 'react'
 import "../styles/Home.css"
+import { useNavigate } from 'react-router-dom'
 
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     
       <div className="homepage-wrapper">
@@ -14,7 +16,7 @@ export const Home = () => {
           <h1>Hi Trainer!</h1>
           <p>Welcome To Pokedex</p>
         </div>
-        <button>Start Your Journey</button>
+        <button onClick={() => navigate("/signup")}>Start Your Journey</button>
       </div>
     
   )

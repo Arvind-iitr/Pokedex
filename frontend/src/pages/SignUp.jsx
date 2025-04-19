@@ -3,17 +3,25 @@
 import React, { useState } from 'react';
 import '../styles/Signup.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { IoIosEye , IoIosEyeOff} from "react-icons/io";
+import axios from 'axios';
+import { signup } from '../api/authServices';
 
 export const Signup = () => {
   const [trainerName, setTrainerName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async(e) => {
     e.preventDefault();
-    navigate("/verify")
+    try {
+      const response =  await signup(trainerName, email, password);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -49,25 +57,16 @@ export const Signup = () => {
             <label htmlFor="password">Password</label>
             <input
               id="password"
-              type="password"
+              type= {showPassword? 'text' : 'password'}
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <span className='eye' onClick={()=> setShowPassword(!showPassword)} >{showPassword? <IoIosEyeOff size={24} /> : <IoIosEye size={24} /> }</span> 
           </div>
 
-          <div className="form-group">
-            <label htmlFor="confirm-password">Confirm Password</label>
-            <input
-              id="confirm-password"
-              type="password"
-              placeholder="••••••••"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
+        
 
           <button type="submit" className="signup-button">Sign Up</button>
         </form>
