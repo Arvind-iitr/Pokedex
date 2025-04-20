@@ -3,9 +3,11 @@
 import React from 'react'
 import "../styles/Home.css"
 import { useNavigate } from 'react-router-dom'
+import { useAppContext } from '../context/AppContext';
 
 export const Home = () => {
   const navigate = useNavigate();
+
   return (
     
       <div className="homepage-wrapper">

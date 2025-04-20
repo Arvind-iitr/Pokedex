@@ -1,11 +1,12 @@
 //login from,  options like forgot pass, create account
 
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import "../styles/Login.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { login } from '../api/authServices';
 import { toast } from 'react-toastify';
+import { useAppContext } from '../context/AppContext';
 
 export const Login = () => {
     const [email, setEmail] = useState("");
@@ -13,6 +14,16 @@ export const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
+    const {isLogin, setIsLogin} = useAppContext();
+
+    
+    useEffect(() => {
+      console.log(isLogin);
+      if (isLogin) {
+          navigate("/pokepage");
+      }
+  }, [isLogin]);
+  
 
     const handleLogin = async(e) => {
       e.preventDefault();
@@ -22,6 +33,8 @@ export const Login = () => {
         console.log(response);
         if(response.data.success === true){
           toast.success(response.data.message);
+          setIsLogin(true);
+          navigate('/pokepage');
         }
         else{
           toast.error(response.data.message);
@@ -30,8 +43,7 @@ export const Login = () => {
         console.log(error);
       }
     }
-
-
+    
   return (
     <div className="login-page">
       <div className="login-card">

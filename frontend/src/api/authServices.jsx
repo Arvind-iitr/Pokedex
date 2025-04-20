@@ -15,3 +15,5 @@ export const signup = (username, email, password) => api.post("/signup", { usern
 export const login = (email, password) => api.post("/login", { email, password });
 
 export const sendOtp = () => api.post("/send-otp");
+
+export const isAuth = () => api.get("/isauth");

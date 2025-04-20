@@ -8,6 +8,7 @@ import { ResetPassword } from './pages/ResetPassword';
 import { Home } from './pages/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MainSite } from './pages/MainSite';
 
 
 // import { PokemonChart } from "../Charts/PokemonChart";
@@ -45,6 +46,10 @@ function App() {
     {
       path: "/reset-password",
       element: <ResetPassword/>
+    } ,
+    {
+      path: 'pokepage',
+      element: <MainSite/>
     }
 
 

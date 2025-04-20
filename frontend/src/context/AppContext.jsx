@@ -1,17 +1,50 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState , useEffect } from 'react';
+import { getUser } from '../api/api';
+import { toast } from 'react-toastify';
+import { isAuth } from '../api/authServices';
 
 // 1. Create the context
 const AppContext = createContext();
 
 // 2. Create the provider component
 export const AppProvider = ({ children }) => {
-  const [user, setUser] = useState(null);       // example: for auth
-  const [isDarkMode, setIsDarkMode] = useState(false); // example: for theme toggle
+const[isLogin, setIsLogin] = useState(false);
+const [userData , setUserData] = useState(null);
 
-  const toggleTheme = () => setIsDarkMode(prev => !prev);
+const getUserData = async() => {
+   try {
+     const response  = await getUser();
+     console.log(response.data.userdata);
+     if(response.data.success === true){
+       setUserData(response.data.userdata);
+     }
+   } catch (error) {
+      // toast.error(error.message);
+   }
+}
+
+const getAuthStatus = async() => {
+   try {
+     const response = await isAuth();
+     if(response.data.success === true){
+      setIsLogin(true);
+      getUserData();
+     }else{
+      setIsLogin(false);
+      // toast.error(response.data.message);
+     }
+   } catch (error) {
+      // toast.error(error.message);
+   }
+}
+
+useEffect(() => {
+   getAuthStatus();
+   getUserData();
+}, []);
 
   return (
-    <AppContext.Provider value={{ user, setUser, isDarkMode, toggleTheme }}>
+    <AppContext.Provider value={{isLogin , setIsLogin , userData , setUserData , getUserData }}>
       {children}
     </AppContext.Provider>
   );

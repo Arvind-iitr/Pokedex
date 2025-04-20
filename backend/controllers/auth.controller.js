@@ -131,11 +131,11 @@ export const verifyOtp = async (req, res) => {
     const user = await User.findById(userID);
 
     if (!user) {
-      res.status(404).json({ message: "User not found" });
+      res.json({success:false, message: "User not found" });
     }
 
     if (user.otpValidity < Date.now()) {
-      res.status(400).json({ message: "OTP expired" }); //otp expired
+      res.json({succces:false, message: "OTP expired" }); //otp expired
     }
 
     if (user.otp === otp) {
@@ -144,21 +144,21 @@ export const verifyOtp = async (req, res) => {
       user.otpValidity = null;
       await user.save();
       
-      res.status(200).json({ message: "OTP verified successfully" });
+      res.json({success:true, message: "OTP verified successfully" });
     } else {
-      res.status(400).json({ message: "Invalid OTP" }); //invalid otp
+      res.json({ success:false, message: "Invalid OTP" }); //invalid otp
     }
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.json({success:false, message: error.message });
   }
 };
 
 //a lightweight route to check if user is authenticated
 export const isAuth = async (req, res) => {
   try {
-    res.status(200).json({ success: true, user: req.user });
+    res.json({ success: true, user: req.user });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.json({success:false,  message: error.message });
   }
 };
 

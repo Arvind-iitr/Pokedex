@@ -7,6 +7,7 @@ import { IoIosEye , IoIosEyeOff} from "react-icons/io";
 import axios from 'axios';
 import { signup , sendOtp } from '../api/authServices';
 import { toast } from'react-toastify';
+import { useAppContext } from '../context/AppContext';
 
 export const Signup = () => {
   const [trainerName, setTrainerName] = useState('');
@@ -15,6 +16,8 @@ export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const {isLogin, setIsLogin} = useAppContext();
+
   const handleSignup = async(e) => {
     e.preventDefault();
     try {
@@ -22,13 +25,8 @@ export const Signup = () => {
       console.log(response.data);
       if(response.data.success === true){
          toast.success(response.data.message);
-         const otpresponse = await sendOtp();
-         if(otpresponse.data.success === true){
-            toast.success(otpresponse.data.message);
-            navigate('/verify-otp');}
-            else{
-              toast.error(otpresponse.data.message);
-            }
+         setIsLogin(true);
+         navigate('/pokepage')
       }
       else{
         toast.error(response.data.message);

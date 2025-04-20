@@ -1,0 +1,36 @@
+.pokemon-navbar.glassy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  padding-top: 16px;
+  /* border-radius: 16px; */
+  /* margin: 16px; */
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+  
+  .logo img {
+  
+    width: 60px;
+  }
+  
+  .profile-icon {
+    color: #fdc23f;
+    cursor: pointer;
+  }
+  
+  .profile-icon:hover {
+    color: #fbb214;
+  }
+  
+  .nav-input{
+   margin-top: -6px;
+    padding: 12px;
+    width: 60vw;
+
+  }

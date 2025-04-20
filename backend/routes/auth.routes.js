@@ -10,7 +10,7 @@ authRouter.post("/login", login);
 authRouter.post("/signout", signout);
 authRouter.post("/send-otp" , userAuthenticate, sendOtp); //using the authenticate middleware to protect these route
 authRouter.post("/verify-otp", userAuthenticate,  verifyOtp);
-authRouter.post("/isauth", userAuthenticate, isAuth); 
+authRouter.get("/isauth", userAuthenticate, isAuth); 
 authRouter.post("/send-reset-otp", sendResetOtp); 
 authRouter.post("/reset-password", resetPassword); 
 

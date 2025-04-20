@@ -1,12 +1,19 @@
 //verify otp 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/VerifyOTP.css';
 import { useNavigate } from 'react-router-dom';
+import { useAppContext } from '../context/AppContext';
 
 export const VerifyOTP = () => {
   const [code, setCode] = useState('');
   const navigate = useNavigate();
+
+  const {isLogin , userData  } = useAppContext();
+
+  useEffect(() => {
+    isLogin&&userData&&userData.isverified && navigate('/pokepage');  
+  }, [isLogin, userData]);
 
   const handleVerify = (e) => {
     e.preventDefault();
