@@ -56,15 +56,15 @@ export const login = async (req, res) => {
     const user = await User.findOne({ email }); //find the user in database
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.json({succces: false, message: "User not found" });
     }
+   
 
     const isPasswordMatch = await bcrypt.compare(password, user.password); // compare the hashed password with the password
 
     if (!isPasswordMatch) {
-      return res.status(400).json({ message: "Invalid password" });
+      return res.json({ succces:false , message: "Invalid password" });
     }
-
 
     const token = jwt.sign({ id: user._id }, process.env.SECRET, {
       expiresIn: "3d",
@@ -77,16 +77,16 @@ export const login = async (req, res) => {
       maxAge: 3 * 24 * 60 * 60 * 1000, // Expire in 3 days
     });
 
-    res.json({ message: "User logged in successfully" });
+    res.json({success:true, message: "User logged in successfully" });
   } catch (error) {
-    res.json({ message: error.message });
+    res.json({succces: false, message: error.message });
   }
 };
 
 //signout route to clear the token
 export const signout = async (req, res) => {
   res.clearCookie("token", { path: "/" }); //clear the token from the response cookie
-  res.json({ message: "User signed out successfully" });
+  res.json({succces:true, message: "User signed out successfully" });
 };
 
 //send otp route to send otp to user's registered email
@@ -97,7 +97,7 @@ export const sendOtp = async (req, res) => {
     const user = await User.findById(userID);
 
     if (user.isverified) {
-      res.status(400).json({ message: "User is already verified" }); //already verified user
+      res.json({succces:false, message: "User is already verified" }); //already verified user
     }
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString(); //generate a random 6-digit otp
@@ -115,9 +115,9 @@ export const sendOtp = async (req, res) => {
 
     await transporter.sendMail(emailObject);
 
-    res.status(200).json({ message: "OTP sent successfully" });
+    res.status(200).json({ success:true , message: "OTP sent successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({succces:false, message: error.message });
   }
 };
 

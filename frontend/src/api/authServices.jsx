@@ -11,3 +11,7 @@ const api = axios.create({
 
 //signup
 export const signup = (username, email, password) => api.post("/signup", { username, email, password });
+
+export const login = (email, password) => api.post("/login", { email, password });
+
+export const sendOtp = () => api.post("/send-otp");

@@ -5,7 +5,8 @@ import '../styles/Signup.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoIosEye , IoIosEyeOff} from "react-icons/io";
 import axios from 'axios';
-import { signup } from '../api/authServices';
+import { signup , sendOtp } from '../api/authServices';
+import { toast } from'react-toastify';
 
 export const Signup = () => {
   const [trainerName, setTrainerName] = useState('');
@@ -19,6 +20,19 @@ export const Signup = () => {
     try {
       const response =  await signup(trainerName, email, password);
       console.log(response.data);
+      if(response.data.success === true){
+         toast.success(response.data.message);
+         const otpresponse = await sendOtp();
+         if(otpresponse.data.success === true){
+            toast.success(otpresponse.data.message);
+            navigate('/verify-otp');}
+            else{
+              toast.error(otpresponse.data.message);
+            }
+      }
+      else{
+        toast.error(response.data.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +77,7 @@ export const Signup = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <span className='eye' onClick={()=> setShowPassword(!showPassword)} >{showPassword? <IoIosEyeOff size={24} /> : <IoIosEye size={24} /> }</span> 
+            <span className='eye' onClick={()=> setShowPassword(!showPassword)} >{showPassword?<IoIosEye size={24} />: <IoIosEyeOff size={24} />}</span> 
           </div>
 
         

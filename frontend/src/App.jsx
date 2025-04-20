@@ -6,6 +6,8 @@ import { VerifyOTP } from './pages/VerifyOTP';
 import { ResetOTP } from './pages/ResetOTP';
 import { ResetPassword } from './pages/ResetPassword';
 import { Home } from './pages/Home';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 // import { PokemonChart } from "../Charts/PokemonChart";
@@ -49,7 +51,18 @@ function App() {
     
   ])
 
-  return <RouterProvider router={router}/>
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
+    </>
+  );
 }
 
 export default App;
