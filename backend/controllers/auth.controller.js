@@ -28,6 +28,7 @@ export const signup = async (req, res) => {
     }); // Generate a JWT token for the user using id and expiration time of 3 days
 
     res.cookie("token", token, {
+      path: "/",
       httpOnly: true,
       secure: process.env.MODE === "production", // Set secure flag to true when running in production mode
       sameSite: process.env.MODE === "production" ? "none" : "strict", // Set SameSite to 'none' when running in production mode or 'strict' when running in development mode
@@ -71,6 +72,7 @@ export const login = async (req, res) => {
     }); // Generate a JWT token for the user using id and expiration time of 3 days
 
     res.cookie("token", token, {
+      path: "/",
       httpOnly: true,
       secure: process.env.MODE === "production", // Set secure flag to true when running in production mode
       sameSite: process.env.MODE === "production" ? "none" : "strict", // Set SameSite to 'none' when running in production mode or 'strict' when running in development mode

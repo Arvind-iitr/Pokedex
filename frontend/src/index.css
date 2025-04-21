@@ -6,14 +6,18 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
     background: #1c1b2f;
-    color: aliceblue;
-
+    color: white;
   }
 
+  *{
+    margin: 0;
+    padding: 0;
+  }
   /*
     outline: 1px solid red; /* Helps spot rogue elements */
 
-
-  
+/* 
+  *{
+    outline: 1px solid red; 
+  } */

@@ -1,0 +1,50 @@
+
+
+.section-3 {
+  margin-top: 50px;
+  display: grid; /* Enable grid layout */
+  grid-template-columns: repeat(5, 1fr); /* Create 4 equal-width columns */
+  gap: 20px; /* Space between grid items */
+  padding: 16px; /* Padding around the grid */
+}
+
+
+.s-3-div {
+  display: flex;
+  justify-content: center;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 480px) {
+  .section-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  pokemon-card {
+    width: 240px;
+    height: 320px;
+  }
+
+   
+  .nav-input{
+ 
+     width: 50vw;
+
+   }
+
+ 
+}
+
+/* Tablets (portrait) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for tablets */
+
+  .section-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  pokemon-card {
+    width: 180px;
+    height: 300px;
+  }
+}

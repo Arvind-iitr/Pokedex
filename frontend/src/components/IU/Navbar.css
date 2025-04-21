@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 30px;
+  padding: 12px 3vw;
   padding-top: 16px;
   /* border-radius: 16px; */
   /* margin: 16px; */
@@ -11,11 +11,16 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+
+  
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Make sure it stays above other elements */
 }
 
   
   .logo img {
-  
+    cursor: pointer;
     width: 60px;
   }
   
@@ -29,8 +34,25 @@
   }
   
   .nav-input{
-   margin-top: -6px;
+   margin-top: -3px;
     padding: 12px;
-    width: 60vw;
+    width: 58vw;
+  border-radius: 20px;
+  }
 
+  .searchbar-container{
+    position: relative;
+    
+  }
+
+  .nav-search-icons{
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .nav-search-icons {
+    cursor: pointer;
   }

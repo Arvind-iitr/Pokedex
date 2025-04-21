@@ -1,0 +1,110 @@
+[
+  {
+    "type": "normal",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/a/ae/Normal_icon.png/30px-Normal_icon.png",
+    "color": "#9fa19f",
+    "weakness": ["fighting", "ghost"]
+  },
+  {
+    "type": "fire",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/5/5e/Fire_icon.png/30px-Fire_icon.png",
+    "color": "#e62829",
+    "weakness": ["water", "rock"]
+  },
+  {
+    "type": "water",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/7/7f/Water_icon.png/30px-Water_icon.png",
+    "color": "#2980ef",
+    "weakness": ["electric", "grass"]
+  },
+  {
+    "type": "electric",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/a/af/Electric_icon.png/30px-Electric_icon.png",
+    "color": "#fac000",
+    "weakness": ["ground", "rock"]
+  },
+  {
+    "type": "grass",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/c/cb/Grass_icon.png/30px-Grass_icon.png",
+    "color": "#3fa129",
+    "weakness": ["fire", "flying"]
+  },
+  {
+    "type": "ice",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/8/83/Ice_icon.png/30px-Ice_icon.png",
+    "color": "#3dcef3",
+    "weakness": ["fire", "rock"]
+  },
+  {
+    "type": "fighting",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/7/7d/Fighting_icon.png/30px-Fighting_icon.png",
+    "color": "#ff8000",
+    "weakness": ["flying", "psychic"]
+  },
+  {
+    "type": "poison",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/8/84/Poison_icon.png/30px-Poison_icon.png",
+    "color": "#9141cb",
+    "weakness": ["ground", "psychic"]
+  },
+  {
+    "type": "ground",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/5/58/Ground_icon.png/30px-Ground_icon.png",
+    "color": "#915121",
+    "weakness": ["water", "grass"]
+  },
+  {
+    "type": "flying",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/f/f0/Flying_icon.png/30px-Flying_icon.png",
+    "color": "#81b9ef",
+    "weakness": ["rock", "electric"]
+  },
+  {
+    "type": "psychic",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/a/a6/Psychic_icon.png/30px-Psychic_icon.png",
+    "color": "#ef4179",
+    "weakness": ["bug", "dark"]
+  },
+  {
+    "type": "bug",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/7/79/Bug_icon.png/30px-Bug_icon.png",
+    "color": "#91a119",
+    "weakness": ["fire", "flying"]
+  },
+  {
+    "type": "rock",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/f/ff/Rock_icon.png/30px-Rock_icon.png",
+    "color": "#afa981",
+    "weakness": ["water", "grass"]
+  },
+  {
+    "type": "ghost",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/8/82/Ghost_icon.png/30px-Ghost_icon.png",
+    "color": "#704170",
+    "weakness": ["ghost", "dark"]
+  },
+  {
+    "type": "dragon",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/9/91/Dragon_icon.png/30px-Dragon_icon.png",
+    "color": "#5060e1",
+    "weakness": ["ice", "fairy"]
+  },
+  {
+    "type": "dark",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/3/33/Dark_icon.png/30px-Dark_icon.png",
+    "color": "#624d4e",
+    "weakness": ["fighting", "fairy"]
+  },
+  {
+    "type": "steel",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/b/b8/Steel_icon.png/30px-Steel_icon.png",
+    "color": "#60a1b8",
+    "weakness": ["fire", "fighting"]
+  },
+  {
+    "type": "fairy",
+    "url": "https://archives.bulbagarden.net/media/upload/thumb/5/5a/Fairy_icon.png/30px-Fairy_icon.png",
+    "color": "#ef70ef",
+    "weakness": ["poison", "steel"]
+  }
+]

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/IU/Navbar';
+import { PokemonCatalog } from '../components/pokemon/PokemonCatalog';
 
 export const MainSite = () => {
     const { isLogin, userData, getUserData } = useAppContext();
@@ -37,6 +38,7 @@ export const MainSite = () => {
                 
                     <></>
             )}
+        <PokemonCatalog/>
         </>
     );
 }

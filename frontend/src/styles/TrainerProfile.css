@@ -1,0 +1,164 @@
+.profile-container{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/image/trainerbg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+  
+}
+
+.trainer-card{
+    width: 90vw;
+    height: 90vh;
+    border-radius: 16px;
+    background: rgba(42, 42, 61, 0.4); /* semi-transparent background */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* soft glow */
+    backdrop-filter: blur(10px); /* blur effect */
+    -webkit-backdrop-filter: blur(10px); /* for Safari */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* subtle border */
+}
+
+.trainer-card-upper-section{
+    background:rgba(242, 198, 105, 0.4);
+    /* background-color: aqua; */
+    /* outline: 1px solid red;  */
+    width: 100%;
+    height: 30%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: flex;
+
+}
+
+.profile-pic-container
+{
+    width: 20%;
+    height: 100%;
+    outline: 1px solid rgb(191, 255, 0); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 16px;
+}
+
+.right-upper-div{
+    box-sizing: border-box;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.trainer-info-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logout-verify{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bhaimon{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+     outline: 1px solid red; 
+}
+
+/* Navbar.css */
+.profile-navbar {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-navbar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+  }
+  
+  .profile-navbar button:hover {
+    color: #00ffff;
+  }
+  
+  .p-active {
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    border-bottom: 2px solid #00ffff;
+  }
+  
+  /* buttons */
+  .pokemon-button {
+    background-color: #ffcb05;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 203, 5, 0.5);
+  }
+  
+  .pokemon-button:hover {
+    background-color: #f0b800;
+    box-shadow: 0 0 10px #ffee58, 0 0 20px #ffee58;
+    color: #000;
+  }
+  
+.user-profile-div{
+    display: flex;
+    width: 140px;
+    height: 140px;
+    background-color: skyblue;
+   border-radius: 50%;
+   align-items: center;
+   justify-content: center;
+   
+}
+
+.profile-pic-container{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-pic-container span{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.trainer-profile-main-area{
+
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}

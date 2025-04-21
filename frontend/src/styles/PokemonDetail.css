@@ -1,0 +1,358 @@
+.radar-chart{
+    /* border: 2px solid steelblue; */
+     height: 440px;
+     width: 440px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding-right: 28px;
+ }
+
+
+ /* moves-table */
+ /* MovesTable.css */
+.table-container {
+    margin: 20px auto;
+    width: 80%;
+    overflow-x: auto;
+  
+  }
+  
+  .moves-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .moves-table thead {
+    background-color: rgb(99, 245, 255);
+    color: rgb(58, 54, 54);
+  }
+  
+  .moves-table th,
+  .moves-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+
+  .moves-table th {
+    font-weight: bold;
+  }
+  
+
+
+  /* rest-css */
+
+  .card {
+    background-color: #2a2a3d;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 60vw;
+    padding: 20px;
+    height: auto;
+  
+    
+  }
+  
+  .header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  .header span {
+    color: #8aadf4;
+  }
+  
+  .dropdown {
+    background-color: #3a3a5c;
+    border: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .image-section {
+    text-align: center;
+  }
+  
+  .image-section img {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+  }
+  
+  .description {
+    margin-top: 10px;
+    color: #cdd6f4;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .info,
+  .type,
+  .weaknesses {
+    width: 64px;
+    /* border: 2px solid wheat; */
+    flex: 1;
+  }
+  
+  .weakness {
+    display: inline-block;
+    background-color: #f38ba8;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    text-align: center;
+    width: 68px;
+    margin-bottom: 10px;
+  }
+  
+  .stats {
+   /* border: 2px solid saddlebrown; */
+    margin-top: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stat-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .bar {
+    background-color: #3a3a5c;
+    height: 10px;
+    border-radius: 5px;
+  }
+  
+  .hp {
+    width: 80%;
+    background-color: #f38ba8;
+  }
+  
+  .attack {
+    width: 70%;
+    background-color: #f9e2af;
+  }
+  
+  .defense {
+    width: 90%;
+    background-color: #a6e3a1;
+  }
+  
+  .special-attack {
+    width: 85%;
+    background-color: #89b4fa;
+  }
+  
+  .special-defense {
+    width: 75%;
+    background-color: #cba6f7;
+  }
+  
+  .speed {
+    width: 60%;
+    background-color: #94e2d5;
+  }
+  
+  .evolutions {
+    margin-top: 20px;
+  }
+  
+  .evolution-chain {
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    display: flex
+;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .evolution {
+   
+    text-align: center;
+  }
+  
+  .evolution img {
+    padding: 5px;
+  
+    width: 100px;
+
+    height: 100px;
+    /* border-radius: 50%; */
+  }
+  
+  .evolution p {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  .info{
+    width: 250px;
+  }
+
+  /* .stats-chart{
+    padding-bottom: 46px;
+  } */
+
+
+  .weaknesses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inside-img{
+      border: 1px solid skyblue;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+  /* median query */
+
+  /* Media Query for Mobile Phones and Tablets (Portrait) */
+@media only screen and (max-width: 768px) {
+    .radar-chart{
+        /* border: 2px solid steelblue; */
+         height: 360px;
+         width: 360px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding-right: 28px;
+     }
+ 
+
+  .card {
+    padding: 15px;
+    width: 80vw;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .dropdown {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .description {
+    width: 90%;
+    font-size: 13px;
+    margin-left: auto;
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .info,
+  .type,
+  .weaknesses {
+    width: auto;
+    text-align: center;
+  }
+
+  .weaknesses{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+  }
+
+  .image-section img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .evolution-chain {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .evolution img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .inside-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .stat-bars {
+    width: 100%;
+  }
+
+  .bar {
+    height: 8px;
+  }
+
+  .evolutions {
+    margin-top: 15px;
+  }
+
+  p{
+    text-align: center;
+  }
+
+
+}
+
+.pokemon-details-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+
+    
+    
+}

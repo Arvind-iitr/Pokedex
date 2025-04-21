@@ -10,6 +10,7 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
 const[isLogin, setIsLogin] = useState(false);
 const [userData , setUserData] = useState(null);
+const [search , setSearch] = useState("");
 
 const getUserData = async() => {
    try {
@@ -44,7 +45,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <AppContext.Provider value={{isLogin , setIsLogin , userData , setUserData , getUserData }}>
+    <AppContext.Provider value={{isLogin , setIsLogin , userData , setUserData , getUserData , search , setSearch }}>
       {children}
     </AppContext.Provider>
   );

@@ -1,0 +1,63 @@
+
+  
+  .about-info-container{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+
+  .stat-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  .stat-row label{
+   
+    width: 160px;
+    font-size: 20px;
+    color: skyblue;
+  }
+
+  .stat-row span{
+    width: 20px;
+    font-size: 20px;
+  }
+
+  .trainer-info p strong {
+    font-weight: bold;
+    color: #fdc23f;
+    font-size: 20px;
+  }
+
+  .trainer-info p {
+    font-size: 20px;
+  }
+
+  .trainer-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
+    height: 100%;
+  }
+
+
+  /* Full bar (track) color */
+.stat-range {
+    background: #eee; /* Unfilled portion */
+  }
+  
+  /* Thumb color and style */
+  .stat-range::-webkit-slider-thumb {
+    background: #ffcb05; /* Yellow thumb */
+  }
+  
+  /* Firefox thumb */
+  .stat-range::-moz-range-thumb {
+    background: #ffcb05;
+  }
