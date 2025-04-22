@@ -4,24 +4,37 @@ import React, { useEffect, useState } from 'react';
 import '../styles/VerifyOTP.css';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
+import { verifyOtp } from '../api/authServices';
+import { toast } from'react-toastify';
 
 export const VerifyOTP = () => {
   const [code, setCode] = useState('');
   const navigate = useNavigate();
 
-  const {isLogin , userData  } = useAppContext();
+  const {isLogin , userData , getUserData} = useAppContext();
 
   useEffect(() => {
     isLogin&&userData&&userData.isverified && navigate('/pokepage');  
   }, [isLogin, userData]);
 
-  const handleVerify = (e) => {
+  const handleVerify = async(e) => {
     e.preventDefault();
-    console.log('Entered verification code:', code);
+   
     // Add code verification logic here
-
-    navigate("/");
-
+    try {
+      const response = await verifyOtp(code);
+      if(response.data.success === true){
+        toast.success(response.data.message);
+        getUserData();
+        navigate('/profile');
+      }else{
+        toast.error(response.data.message);
+        setCode('');
+      }
+    } catch (error) {
+       console.log(error);
+       setCode('');
+    }
   };
 
   return (

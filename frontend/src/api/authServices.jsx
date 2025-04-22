@@ -19,3 +19,5 @@ export const sendOtp = () => api.post("/send-otp");
 export const isAuth = () => api.get("/isauth");
 
 export const logout = () => api.post("/signout");
+
+export const verifyOtp = (otp) => api.post("/verify-otp", { otp });

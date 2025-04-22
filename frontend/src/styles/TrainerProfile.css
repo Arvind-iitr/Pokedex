@@ -40,7 +40,7 @@
 {
     width: 20%;
     height: 100%;
-    outline: 1px solid rgb(191, 255, 0); 
+    /* outline: 1px solid rgb(191, 255, 0);  */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,7 +79,7 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-     outline: 1px solid red; 
+     /* outline: 1px solid red;  */
 }
 
 /* Navbar.css */
@@ -140,6 +140,12 @@
    align-items: center;
    justify-content: center;
    
+}
+
+.user-profile-div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 .profile-pic-container{

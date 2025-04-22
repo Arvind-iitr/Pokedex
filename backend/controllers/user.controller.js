@@ -1,4 +1,6 @@
 import User from "../models/users.model.js";
+import cloudinary from "../utils/cloudinary.js";
+
 
 // export const getuserdata = async (req, res) => {
 //     try {
@@ -34,6 +36,7 @@ export const getuserdata = async (req, res) => {
         const userData = {
             username: user.username,
             isverified: user.isverified,
+            profilePic: user.profilePic,
         };
         // console.log("User data being sent:", userData);
 
@@ -45,5 +48,28 @@ export const getuserdata = async (req, res) => {
     } catch (error) {
         // console.error("Error in getuserdata:", error);
         res.json({ success: false, message: error.message });
+    }
+}
+
+export const updateProfile = async (req, res) => {
+    try {
+        const userID = res.locals.userId;
+        const {profilePic} = req.body;
+        console.log("Profile picture:", profilePic);
+
+        if (!profilePic) {
+            return res.json({ success: false, message: 'Profile picture is required' });
+        }
+
+        const uploadRes = await cloudinary.uploader.upload(profilePic);
+        console.log("Profile picture uploaded to Cloudinary:", uploadRes);
+        await User.findByIdAndUpdate(userID, { profilePic: uploadRes.secure_url });
+
+        res.json({ success: true, message: 'Profile picture updated successfully', profilePic: uploadRes.secure_url });
+    }
+    catch (error) {
+        // console.error("Error in updateProfile:", error);
+        res.json({ success: false, message: error.message });
+        console.log("Error in updateProfile:", error);
     }
 }

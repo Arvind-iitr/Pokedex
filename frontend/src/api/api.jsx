@@ -12,3 +12,7 @@ const api = axios.create({
 export const getUser = async () => {
     return api.get('/get-data');
 }
+
+export const updateProfile = async (data) => {
+   return api.put('/update-profile', data);
+}

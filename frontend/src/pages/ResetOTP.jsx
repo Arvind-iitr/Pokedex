@@ -11,12 +11,13 @@ export const ResetOTP = () => {
     // Logic to send OTP goes here (e.g., API call)
   };
 
+  
+
   return (
     <div className="reset-page">
       <div className="reset-card">
         <h1 className="reset-title">Reset Your Password</h1>
         <p className="reset-subtext">Enter your email and we’ll send you a verification code.</p>
-
         <form className="reset-form" onSubmit={handleResetRequest}>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
@@ -29,7 +30,6 @@ export const ResetOTP = () => {
               required
             />
           </div>
-
           <button type="submit" className="reset-button">Send OTP</button>
         </form>
       </div>

@@ -117,9 +117,9 @@ export const sendOtp = async (req, res) => {
 
     await transporter.sendMail(emailObject);
 
-    res.status(200).json({ success:true , message: "OTP sent successfully" });
+    res.json({ success:true , message: "OTP sent successfully" });
   } catch (error) {
-    res.status(500).json({succces:false, message: error.message });
+    res.json({succces:false, message: error.message });
   }
 };
 

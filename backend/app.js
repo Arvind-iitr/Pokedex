@@ -24,9 +24,11 @@ app.use(
   })
 );
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.json());
+// Increase the file size limits for body parsing
+app.use(express.json({ limit: '10mb' })); // for JSON payloads
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.get("/", (req, res) => {
   res.send("Hello,this is our homepage!");

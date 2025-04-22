@@ -43,6 +43,10 @@ export const Login = () => {
         console.log(error);
       }
     }
+
+    const handleForgotPasssword = () => {
+       navigate("/reset-otp");
+    }
     
   return (
     <div className="login-page">
@@ -74,7 +78,7 @@ export const Login = () => {
           Don’t have an account? <Link to={"/signup"}>Signup</Link>
         </p>
         <p className="login-footer">
-          Forgot password? <Link to={"/reset-otp"}>Reset password</Link>
+          Forgot password? <Link to={"/reset-otp"} onClick={handleForgotPasssword} >Reset password</Link>
         </p>
       </div>
     </div>

@@ -21,7 +21,10 @@ export const AboutUser = () => {
                     <p><strong>Gender: </strong>Male</p>
                     <p><strong>Hometown: </strong> Lumiose City, Kalos</p>
                     <p><strong>Trainer Type: </strong> Fire-Type Specialist</p>
-                    <p><strong>Partner Pokémon: </strong> Blaziken</p>
+                    <p><strong>Favourite Pokémon: </strong> Blaziken</p>
+                </div>
+                <div>
+                    Update Info
                 </div>
                 
             </div>
@@ -38,7 +41,7 @@ export const AboutUser = () => {
                                 className="stat-range"
                                 readOnly
                             />
-                            <span className="stat-value">{stat.value}</span>
+                            <span className="stat-value">{stat.value} </span>
                         </div>
                     ))}
                 </div>

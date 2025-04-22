@@ -1,4 +1,6 @@
 .pokemon-navbar.glassy {
+
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +17,7 @@
   
   position: sticky;
   top: 0;
-  z-index: 999; /* Make sure it stays above other elements */
+  z-index: 10; /* Higher than nav-menu */
 }
 
   
@@ -56,3 +58,55 @@
   .nav-search-icons {
     cursor: pointer;
   }
+
+  .nav-menu{
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding-left: 20px;
+    right: 20px;
+    gap: 10px;
+    width: 200px;
+    top: 60px;
+    border-radius: 20px;
+    transform: translateZ(0); /* Sometimes helps force correct layering */
+    
+  }
+
+  .nav-menu li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    
+  }
+
+  .nav-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    height: 200px;
+    font-size: 20px;
+   
+  }
+
+  .nav-menu a {
+    color: #4dd5e4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .display-none{
+    display: none;
+  }
+
+  
