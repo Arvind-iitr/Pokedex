@@ -8,6 +8,7 @@ import connectDB from "./config/db.js";
 
 import authRouter from "./routes/auth.routes.js"; // Import auth routes
 import userRouter from "./routes/user.routes.js"; // Import user routes
+import geminiRouter from "./routes/gemini.routes.js"; // Import gemini routes
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
 // Import routes
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/gemini", geminiRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

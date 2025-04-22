@@ -1,9 +1,13 @@
 import express from 'express';
+import { userAuthenticate } from '../middleware/auth.middleware.js';
+import { findPokemon } from '../controllers/gemini.controller.js';
 
-const router = express.Router();
+const geminiRouter = express.Router();
 
-router.get('/find-pokemon', findPokemon); 
+geminiRouter.post('/find-pokemon',userAuthenticate ,findPokemon); 
 
+
+export default geminiRouter;
 
 
 

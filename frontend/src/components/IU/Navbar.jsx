@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
+import imageCompression from 'browser-image-compression';
 import "./Navbar.css";
 import { FaCamera } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
 import { IoMdMenu } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import { findPokemon } from '../../api/gemini';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -20,26 +22,28 @@ const Navbar = () => {
     const file = event.target.files[0];
     if (!file) return;
 
-    const formData = new FormData();
-    formData.append('image', file); // "image" should match the field your API expects
+    const options = {
+      maxSizeMB: 9,
+      maxWidthOrHeight: 800,
+      useWebWorker: true,
+      fileType: 'image/jpeg',
+    };
 
-    // try {
-    //   const response = await fetch('/api/gemini/upload', {
-    //     method: 'POST',
-    //     body: formData,
-    //   });
+    try {
+      const compressedFile = await imageCompression(file, options);
+      const base64Image = await imageCompression.getDataUrlFromFile(compressedFile);//better way to compress and get base64 string
 
-    //   if (!response.ok) {
-    //     throw new Error('Upload failed');
-    //   }
+      //send the image to gemini route for identification
+      const response = await findPokemon(base64Image);
+      console.log('response in findpokemon',response.data.data);
+      // const name = response.data.bhaimon.name.toLowerCase();
+      // navigate(`/poke-details/${name}`);//redirect to the pokepage of the identified pokemon
+      
+    } catch (error) {
+       console.log('Error compressing image:', error);
+    }
 
-    //   const result = await response.json();
-    //   console.log('Upload success:', result);
-    //   // You can display result or route based on it
-
-    // } catch (error) {
-    //   console.error('Error uploading image:', error);
-    // } define the API endpoint and method for uploading images.
+    
   };
 
   return (

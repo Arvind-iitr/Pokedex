@@ -10,3 +10,5 @@ userRouter.get('/get-data', userAuthenticate, getuserdata)
 userRouter.put('/update-profile', userAuthenticate, updateProfile)
 
 export default userRouter;
+
+
