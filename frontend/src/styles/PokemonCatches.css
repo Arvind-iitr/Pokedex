@@ -1,0 +1,324 @@
+.pokemon-catches-wrapper{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    /* outline: 1px solid red; */
+    display: flex;
+}
+
+.pc-section1{
+    width: 24%;
+    height: 100%;
+    /* outline: 1px solid green; */
+    display: flex;
+    padding: 20px 10px;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 10px;
+    box-sizing: border-box;
+    border-right: 1px solid rgb(0, 213, 255);
+}
+
+
+.pc-section1::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.pc-section2{
+ 
+    width: 76%;
+    height: 100%;
+    /* outline: 1px solid blue; */
+    overflow-y: auto;
+   
+}
+
+.pc-section2::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.pc-pokemon-card {
+    background-color: #fdc23f;;
+    width: 90%;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    cursor: pointer;
+    flex-shrink: 0;
+    
+    /* 3D-like shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                0 10px 20px rgba(0, 0, 0, 0.1);
+
+    /* Smooth transition for hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    animation: popIn 0.4s ease;
+
+    color: black;
+}
+
+.pc-pokemon-card img{
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+}
+
+.pc-pokemon-card:hover {
+    /* Simulates rising in Z direction */
+    transform: scale(1.05);
+    
+    /* Stronger shadow when "lifted" */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15),
+                0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+/* css for pokemon data */
+
+.bhaimon-rarity-common {
+    background: #b0b0b0;
+    color: #222;
+  }
+  
+  .bhaimon-rarity-uncommon {
+    background: #3083dc;
+    color: #fff;
+  }
+  
+  .bhaimon-rarity-rare {
+    background: #6b45ce;
+    color: #fff;
+  }
+  
+  .bhaimon-rarity-ultra {
+    background: #db9c14;
+    color: #fff;
+  }
+  
+  .bhaimon-rarity-legendary {
+    background: #f57d31;
+    color: #fff;
+  }
+  
+  .bhaimon-rarity-mythical {
+    background: #fc5487;
+    color: #fff;
+  }
+  
+
+  .bhaimon-type-normal    { background: #A8A878; color: #222; }
+.bhaimon-type-fire      { background: #F08030; color: #fff; }
+.bhaimon-type-water     { background: #6890F0; color: #fff; }
+.bhaimon-type-electric  { background: #F8D030; color: #222; }
+.bhaimon-type-grass     { background: #78C850; color: #222; }
+.bhaimon-type-ice       { background: #98D8D8; color: #222; }
+.bhaimon-type-fighting  { background: #C03028; color: #fff; }
+.bhaimon-type-poison    { background: #A040A0; color: #fff; }
+.bhaimon-type-ground    { background: #E0C068; color: #222; }
+.bhaimon-type-flying    { background: #A890F0; color: #222; }
+.bhaimon-type-psychic   { background: #F85888; color: #fff; }
+.bhaimon-type-bug       { background: #A8B820; color: #222; }
+.bhaimon-type-rock      { background: #B8A038; color: #fff; }
+.bhaimon-type-ghost     { background: #705898; color: #fff; }
+.bhaimon-type-dragon    { background: #7038F8; color: #fff; }
+.bhaimon-type-dark      { background: #705848; color: #fff; }
+.bhaimon-type-steel     { background: #B8B8D0; color: #222; }
+.bhaimon-type-fairy     { background: #EE99AC; color: #222; }
+
+
+/* BhaimonCard.css */
+
+
+  .bhaimon-card-container {
+    background: linear-gradient(135deg, #23243a 0%, #1b1b22 100%);
+    border-radius: 28px;
+    border: 2px solid #35354a;
+    max-width: 980px;
+    margin: 40px auto;
+    padding: 36px 24px;
+    box-shadow: 0 8px 32px #000a;
+  }
+  
+  .bhaimon-card-inner {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .bhaimon-card-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+  }
+  
+  .bhaimon-image-box {
+    background: linear-gradient(135deg, #2d2e44 60%, #26263a 100%);
+    border-radius: 20px;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px #0007;
+  }
+  
+  .bhaimon-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px #ffb34777);
+  }
+  
+  .bhaimon-attacks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin-top: 12px;
+  }
+  
+  .bhaimon-attack-box {
+    background: #272b1e;
+    color: #ffe066;
+    border-left: 6px solid #ffb347;
+    border-radius: 8px;
+    padding: 10px 18px;
+    margin-left: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px #0003;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .bhaimon-attack-box:hover {
+    background: #353a28;
+    transform: translateX(8px) scale(1.04);
+  }
+  
+  .bhaimon-card-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: flex-start;
+  }
+  
+  .bhaimon-details-box {
+    background: #23243a;
+    border-radius: 12px;
+    padding: 22px 28px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 1px 6px #0003;
+  }
+  
+  .bhaimon-detail-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .bhaimon-detail-label {
+    color: #a4a6bb;
+    min-width: 64px;
+    font-size: 1.04rem;
+    font-weight: 500;
+    text-transform: lowercase;
+  }
+  
+  .bhaimon-detail-value {
+    color: #fff;
+    font-size: 1.12rem;
+    font-weight: 600;
+  }
+  
+  .bhaimon-rarity-box {
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: lowercase;
+    box-shadow: 0 1px 4px #0002;
+    border: 2px solid transparent;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  
+  .bhaimon-rarity-rare {
+    background: linear-gradient(90deg, #ffb347 70%, #ffcc80 100%);
+    color: #222;
+    border-color: #ffb347;
+  }
+  .bhaimon-rarity-rare:hover {
+    box-shadow: 0 0 0 3px #ffb34755;
+  }
+  
+  .bhaimon-type-box {
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: lowercase;
+    margin-right: 8px;
+    border: 2px solid transparent;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px #0002;
+  }
+  .bhaimon-type-fire {
+    background: linear-gradient(90deg, #ff512f 60%, #f09819 100%);
+    color: #fff;
+    border-color: #ff512f;
+  }
+  .bhaimon-type-fire:hover {
+    box-shadow: 0 0 0 3px #ff512f55;
+  }
+  
+  .bhaimon-description {
+    background: #23243a;
+    border-radius: 14px;
+    padding: 24px 28px;
+    color: #e0e0e0;
+    font-size: 1.08rem;
+    line-height: 1.6;
+    box-shadow: 0 1px 6px #0002;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 800px) {
+    .bhaimon-card-inner {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .bhaimon-card-left {
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 28px;
+    }
+    .bhaimon-attacks-list {
+      margin-top: 0;
+    }
+  }
+  

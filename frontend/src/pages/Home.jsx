@@ -4,6 +4,7 @@ import React from 'react'
 import "../styles/Home.css"
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext';
+import * as motion from "motion/react-client"
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -11,9 +12,15 @@ export const Home = () => {
   return (
     
       <div className="homepage-wrapper">
-        <div className="home-pokemon-img">
+        <motion.div className="home-pokemon-img"
+         initial={{ opacity: 0, scale: 0 }}
+         animate={{ opacity: 1, scale: 1 }}
+         transition={{
+             duration: 0.4,
+             scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+         }}>
           <img src="/svg/pikachu.svg" alt="pikachu image" />
-        </div>
+        </motion.div>
         <div className="welcome-message">
           <h1>Hi Trainer!</h1>
           <p>Welcome To Pokedex</p>

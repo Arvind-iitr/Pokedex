@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const identifiedPokemonSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, default : "" },
     identifiedAt: { type: Date, default: Date.now },
     imageUrl: { type: String, default: "" },
     rarity: {

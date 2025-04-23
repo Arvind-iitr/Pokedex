@@ -9,6 +9,7 @@ import { AboutUser } from '../components/user/AboutUser';
 import { logout, sendOtp } from '../api/authServices';
 import { updateProfile } from '../api/api';
 import { toast } from 'react-toastify';
+import { PokemonCatches } from '../components/user/PokemonCatches';
 
 export const TrainerProfile = () => {
 
@@ -122,7 +123,7 @@ export const TrainerProfile = () => {
           </div>
           <div className="bhaimon">
             <div className="right-upper-div">
-              <div className="trainer-info-container">
+              <div className="trainer-info-container">  
                 <h2>Trainer Name</h2>
                 <h3>Trainer ID: 123456</h3>
               </div>
@@ -150,7 +151,7 @@ export const TrainerProfile = () => {
         </div>
         <div className="trainer-profile-main-area">
           {activeTab === "about" && <AboutUser />}
-          {activeTab === "catches" && <h1>Pokémon Catches</h1>}
+          {activeTab === "catches" && <PokemonCatches/>}
         </div>
       
       </div>

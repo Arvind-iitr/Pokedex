@@ -105,4 +105,23 @@
     left: 97%;
   }
 
+  /* loading state */
+
+  .loader-container {
+    gap: 5px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full screen height */
+  }
   
+  .loader-icon {
+    animation: spin 1s linear infinite;
+    color: #ffd700; /* customize color */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -3,6 +3,47 @@
     padding: 0;;
 }
 
+:root {
+  /* Backgrounds */
+  --bhaimon-bg: #24243e;           /* Main card background (dark blue/indigo) */
+  --bhaimon-surface: #2d2e44;      /* Inner container, panels */
+  --bhaimon-accent: #23a6d5;       /* Accent blue/cyan */
+  --bhaimon-panel: #1b1b22;        /* For contrast panels */
+  --bhaimon-border: #35354a;       /* Borders */
+
+  /* Text */
+  --bhaimon-text: #e0e0e0;         /* Primary text */
+  --bhaimon-text-secondary: #a0a0a0; /* Secondary text */
+
+  /* Image box */
+  --bhaimon-image-bg: #35354a;
+
+  /* Attack box */
+  --bhaimon-attack-bg: #ffe066;
+  --bhaimon-attack-text: #222;
+  --bhaimon-attack-border: #ffb347;
+
+  /* Rarity colors */
+  --bhaimon-rarity-common: #b0b0b0;
+  --bhaimon-rarity-uncommon: #3083dc;
+  --bhaimon-rarity-rare: #6b45ce;
+  --bhaimon-rarity-ultra: #db9c14;
+  --bhaimon-rarity-legendary: #f57d31;
+  --bhaimon-rarity-mythical: #fc5487;
+
+  /* Type colors (examples) */
+  --bhaimon-type-electric: #f8d030;
+  --bhaimon-type-fire: #ff512f;
+  --bhaimon-type-water: #6890f0;
+  --bhaimon-type-grass: #78c850;
+  --bhaimon-type-ice: #98d8d8;
+  --bhaimon-type-psychic: #f85888;
+  --bhaimon-type-dark: #705848;
+  --bhaimon-type-fairy: #ee99ac;
+  /* Add more as needed */
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -22,3 +63,6 @@ html, body {
    {
     outline: 1px solid red; 
   }  
+
+
+  

@@ -8,18 +8,21 @@ import { IoMdMenu } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { findPokemon } from '../../api/gemini';
 import { toast } from 'react-toastify';
+import { LoaderCircle } from 'lucide-react';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
   const { search, setSearch } = useAppContext();
   const fileInputRef = useRef(null);
+  const [isChecking, setIsChecking] = useState(false);
 
   const handleClick = () => {
     fileInputRef.current.click();
   };
 
   const handleImageUpload = async(event) => {
+    setIsChecking(true);
     const file = event.target.files[0];
     if (!file) return;
 
@@ -37,13 +40,17 @@ const Navbar = () => {
       //send the image to gemini route for identification
       const response = await findPokemon(base64Image);
       if(response.data.success === true){
+        setIsChecking(false);
         console.log(response.data.data);
       }else{
+        setIsChecking(false);
         toast.error(response.data.message);
       }
       
     } catch (error) {
        console.log('Error compressing image:', error);
+    }finally{
+      setIsChecking(false);
     }
 
     
@@ -85,6 +92,19 @@ const Navbar = () => {
           </ul>
         </div>
       )}
+      <div style={{
+        display: isChecking? 'flex' : 'none',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '20px',
+        paddingTop: '16px',
+       
+      }}>
+        <div className="loader-container">
+            <LoaderCircle className="loader-icon" size={48} />
+          </div>
+        checking....
+      </div>
     </>
   );
 };

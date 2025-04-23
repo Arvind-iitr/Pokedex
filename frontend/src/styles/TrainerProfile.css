@@ -5,11 +5,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('/image/trainerbg.png');
+    /* background-image: url('/image/trainerbg.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
     overflow: hidden;
+    background-color: #28282a;
   
 }
 
@@ -25,7 +26,7 @@
 }
 
 .trainer-card-upper-section{
-    background:rgba(242, 198, 105, 0.4);
+    
     /* background-color: aqua; */
     /* outline: 1px solid red;  */
     width: 100%;
@@ -33,7 +34,8 @@
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     display: flex;
-
+    border-bottom: 1px solid rgb(0, 213, 255);
+  
 }
 
 .profile-pic-container
@@ -166,5 +168,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+
   
 }
