@@ -35,7 +35,7 @@ const Navbar = () => {
 
       //send the image to gemini route for identification
       const response = await findPokemon(base64Image);
-      console.log('response in findpokemon',response.data.data);
+      console.log('response in findpokemon', response.data.data);
       // const name = response.data.bhaimon.name.toLowerCase();
       // navigate(`/poke-details/${name}`);//redirect to the pokepage of the identified pokemon
       

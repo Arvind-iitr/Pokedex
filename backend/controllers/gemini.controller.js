@@ -1,5 +1,6 @@
 import User from "../models/users.model.js";
 import { geminiVisionModel } from "../utils/gemini.js";
+import cloudinary from "../utils/cloudinary.js";
 
 export const findPokemon = async (req, res) => {
   try {
@@ -31,12 +32,21 @@ export const findPokemon = async (req, res) => {
       },
     ]);
 
-    const poketext =
-      geminiresponse.response.candidates[0].content.parts[0].text;
+    //extract useful info from response 
+    const poketext = geminiresponse.response.candidates[0].content.parts[0].text;
     const cleanedText = poketext.replace(/```json|```/g, "").trim();
     const pokemonInfo = JSON.parse(cleanedText);
 
+    if (pokemonInfo.isValidPokemon) {
+       //store the image in cloudinary
+       const uploadRes = await cloudinary.uploader.upload(pokemonPic);
+       //store the pokemon in database
+       user.identifiedPokemon.push({ name: pokemonInfo.name,  imageUrl: uploadRes.secure_url });
+       await user.save();
+    }
+
     res.json({ success: true, data: pokemonInfo });
+
   } catch (error) {
     res.json({ success: false, message: error.message });
     console.error("Error in findPokemon:", error);
