@@ -13,11 +13,12 @@ html, body {
   *{
     margin: 0;
     padding: 0;
+    /* outline: 1px solid red;  */
   }
   /*
     outline: 1px solid red; /* Helps spot rogue elements */
 
 /* 
-  *{
+   {
     outline: 1px solid red; 
-  } */
+  }  

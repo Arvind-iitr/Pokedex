@@ -22,7 +22,7 @@ export const PokemonCard = ({ data }) => {
     setType(matchedTypes);
   }, [typesData, data.types]); // Add dependencies
 
-  console.log(type);
+  // console.log(type);
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

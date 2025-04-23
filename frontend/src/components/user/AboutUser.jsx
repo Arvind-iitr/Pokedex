@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../styles/AboutUser.css"
+import { useAppContext } from '../../context/AppContext';
 
 export const AboutUser = () => {
 
@@ -12,21 +13,23 @@ export const AboutUser = () => {
         { label: 'Stamina', value: 72 },
     ];
 
+    const { userData, getUserData } = useAppContext();
+
     return (
+        <>
+    
         <div className='about-info-container'>
             <div className="about-left">
                 <div className="trainer-info">
-                    <p><strong>Name: </strong> Rika Blaze</p>
+                    <p><strong>Name: </strong>{userData ? userData.username : " "}</p>
                     <p><strong>Trainer ID: </strong> 45281</p>
-                    <p><strong>Gender: </strong>Male</p>
-                    <p><strong>Hometown: </strong> Lumiose City, Kalos</p>
-                    <p><strong>Trainer Type: </strong> Fire-Type Specialist</p>
-                    <p><strong>Favourite Pokémon: </strong> Blaziken</p>
+                    <p><strong>Gender: </strong>{userData ? userData.gender : ""}</p>
+                    <p><strong>Hometown: </strong>{userData ? userData.hometown : ""} </p>
+                    <p><strong>Trainer Type: </strong> {userData ? userData.trainerType : ""}</p>
+                    <p><strong>Favourite Pokémon: </strong>{userData? userData.favPokemon : ""}</p>
                 </div>
-                <div>
-                    Update Info
-                </div>
-                
+               
+
             </div>
             <div className="about-right">
                 <div className="about-trainer-stats">
@@ -47,5 +50,7 @@ export const AboutUser = () => {
                 </div>
             </div>
         </div>
+        
+        </>
     )
 }

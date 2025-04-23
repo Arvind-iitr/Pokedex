@@ -11,7 +11,7 @@ const pokeapi = axios.create({
 export const getpokemondata = async (limit = 100) => {
   try {
     const res = await pokeapi.get(`/pokemon?limit=${limit}`);
-    console.log("first result", res.data.results);
+    // console.log("first result", res.data.results);
 
     //call all the url in the data that we got
     const detailedPromises = res.data.results.map(async (cur) => {

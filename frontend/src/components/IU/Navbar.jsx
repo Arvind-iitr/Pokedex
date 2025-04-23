@@ -7,6 +7,7 @@ import { useAppContext } from '../../context/AppContext';
 import { IoMdMenu } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { findPokemon } from '../../api/gemini';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -35,9 +36,11 @@ const Navbar = () => {
 
       //send the image to gemini route for identification
       const response = await findPokemon(base64Image);
-      console.log('response in findpokemon', response.data.data);
-      // const name = response.data.bhaimon.name.toLowerCase();
-      // navigate(`/poke-details/${name}`);//redirect to the pokepage of the identified pokemon
+      if(response.data.success === true){
+        console.log(response.data.data);
+      }else{
+        toast.error(response.data.message);
+      }
       
     } catch (error) {
        console.log('Error compressing image:', error);
@@ -78,6 +81,7 @@ const Navbar = () => {
             <li><Link to={"/profile"}>Profile</Link></li>
             <li><Link to={"/dailies"}>Daily Task</Link></li>
             <li><Link to={"/news"}>News</Link></li>
+            <li><Link to={"/update-trainer-info"}>Update Info</Link></li>
           </ul>
         </div>
       )}

@@ -75,7 +75,7 @@
     right: 20px;
     gap: 10px;
     width: 200px;
-    top: 60px;
+    top: 80px;
     border-radius: 20px;
     transform: translateZ(0); /* Sometimes helps force correct layering */
     
@@ -100,7 +100,7 @@
   }
 
   .nav-menu a {
-    color: #4dd5e4;
+    color: #84cbec;
     text-decoration: none;
     transition: color 0.3s ease;
   }

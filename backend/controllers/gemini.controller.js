@@ -21,8 +21,8 @@ export const findPokemon = async (req, res) => {
 
     const geminiresponse = await geminiVisionModel.generateContent([
       {
-        text: `Is this a Pokémon? Return JSON in this format:{"name": "string","isValidPokemon": true/false,"rarity": "Common | Rare | Legendary | Mythical",
-       "type": ["Type1", "Type2"....]}`,
+        text: `Is this a Pokémon? Return JSON in this format:{"name": "string","isValidPokemon": true/false,"rarity": "common | rare | legendary | mythical",
+       "type": ["Type1", "Type2"....], info(one paragraph about pokemon): "string" , fourMainAttacks : [A1 , A2 , A3 , A4]}`,
       },
       {
         inlineData: {
@@ -32,21 +32,41 @@ export const findPokemon = async (req, res) => {
       },
     ]);
 
-    //extract useful info from response 
-    const poketext = geminiresponse.response.candidates[0].content.parts[0].text;
+    //extract useful info from response
+    const poketext =
+      geminiresponse.response.candidates[0].content.parts[0].text;
     const cleanedText = poketext.replace(/```json|```/g, "").trim();
     const pokemonInfo = JSON.parse(cleanedText);
 
     if (pokemonInfo.isValidPokemon) {
-       //store the image in cloudinary
-       const uploadRes = await cloudinary.uploader.upload(pokemonPic);
-       //store the pokemon in database
-       user.identifiedPokemon.push({ name: pokemonInfo.name,  imageUrl: uploadRes.secure_url });
-       await user.save();
+        //check if pokemon is already identified by the user already
+      const alreadyIdentified = user.identifiedPokemon.find(
+        (poke) => poke.name.toLowerCase() === pokemonInfo.name.toLowerCase()
+      );
+
+      if (alreadyIdentified) {
+        return res.json({
+          success: false,
+          message: "Pokémon already identified!",
+        });
+      }
+      //store the image in cloudinary
+      const uploadRes = await cloudinary.uploader.upload(pokemonPic);
+      //store the pokemon in database
+      const tempObj = {
+        name: pokemonInfo.name,
+        imageUrl: uploadRes.secure_url,
+        rarity: pokemonInfo.rarity,
+        type: pokemonInfo.type,
+        attacks: pokemonInfo.fourMainAttacks,
+        description: pokemonInfo.info,
+      };
+
+      user.identifiedPokemon.push(tempObj);
+      await user.save();
     }
 
     res.json({ success: true, data: pokemonInfo });
-
   } catch (error) {
     res.json({ success: false, message: error.message });
     console.error("Error in findPokemon:", error);
