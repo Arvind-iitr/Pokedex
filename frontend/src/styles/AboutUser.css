@@ -1,63 +1,189 @@
+:root {
+  --about-bg: #23243a;
+  --about-card-bg: #28293e;
+  --about-card-shadow: 0 8px 32px #0004;
+  --about-accent: #23a6d5;
+  --about-accent-light: #ffe066;
+  --about-label: #fdc23f;
+  --about-text: #e0e0e0;
+  --about-text-muted: #a0a0a0;
+}
 
-  
-  .about-info-container{
-    width: 70%;
-    display: flex;
+.about-card {
+  background: var(--about-card-bg);
+  color: var(--about-text);
+  border-radius: 24px;
+  box-shadow: var(--about-card-shadow);
+  padding: 32px 40px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 40px auto;
+  max-width: 800px;
+  min-width: 320px;
+}
+
+.about-user-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  min-width: 180px;
+}
+
+.about-avatar {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, var(--about-accent-light), var(--about-accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #222;
+  box-shadow: 0 2px 10px #0002;
+  overflow: hidden;
+}
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-user-basic {
+  text-align: center;
+}
+.about-username {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.about-user-id {
+  font-size: 1rem;
+  color: var(--about-text-muted);
+}
+
+.about-user-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-user-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 36px;
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+.about-label {
+  color: var(--about-label);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.about-user-stats {
+  background: var(--about-bg);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 6px #0002;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.about-stat-label {
+  width: 90px;
+  color: var(--about-accent);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.about-stat-bar-container {
+  flex: 1;
+  height: 18px;
+  background: #36394a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 10px;
+  box-shadow: 0 1px 2px #0002;
+  position: relative;
+}
+.about-stat-bar {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s cubic-bezier(.4,2.3,.3,1), background 0.2s;
+}
+
+.about-stat-value {
+  width: 32px;
+  text-align: right;
+  font-size: 1.08rem;
+  color: var(--about-accent-light);
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .about-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px 8vw;
+  }
+  .about-user-left {
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 12px;
+    min-width: 0;
+  }
+  .about-user-basic {
+    text-align: left;
+  }
+}
+@media (max-width: 600px) {
+  .about-card {
+    padding: 12px 2vw;
+    border-radius: 14px;
     
   }
-
-  .stat-row{
-    display: flex;
+  .about-user-left {
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    gap: 20px;
+    gap: 12px;
+    min-width: 0;
   }
-
-  .stat-row label{
-   
-    width: 180px;
-    font-size: 20px;
-    color: skyblue;
+  .about-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
   }
-
-  .stat-row span{
-    width: 20px;
-    font-size: 20px;
-  }
-
-  .trainer-info p strong {
-    font-weight: bold;
-    color: #fdc23f;
-    font-size: 20px;
-  }
-
-  .trainer-info p {
-    font-size: 20px;
-  }
-
-  .trainer-info{
+  .about-user-info {
+    font-size: 0.98rem;
+    gap: 10px 18px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    justify-content: center;
-    height: 100%;
   }
-
-
-  /* Full bar (track) color */
-.stat-range {
-    background: #eee; /* Unfilled portion */
+  .about-user-stats {
+    padding: 10px 4px;
+    gap: 10px;
   }
-  
-  /* Thumb color and style */
-  .stat-range::-webkit-slider-thumb {
-    background: #ffcb05; /* Yellow thumb */
+  .about-stat-label {
+    width: 70px;
+    font-size: 0.97rem;
   }
-  
-  /* Firefox thumb */
-  .stat-range::-moz-range-thumb {
-    background: #ffcb05;
+  .about-stat-value {
+    font-size: 0.97rem;
+    width: 24px;
   }
+}

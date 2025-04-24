@@ -172,3 +172,48 @@
 
   
 }
+
+
+
+/* media query for phones */
+@media only screen and (max-width: 600px) {
+    
+
+.trainer-card-upper-section{
+   flex-direction: column;
+   align-items: center;
+   height: 40%;
+}
+
+.profile-pic-container{
+    width: 100%;
+    padding: 6px 0px;
+}
+
+.user-profile-div{
+    width: 110px;
+    height: 110px;
+}
+
+.right-upper-div {
+    flex-direction: column;
+}
+
+.logout-verify{
+    flex-direction: row;
+    padding: 10px 0px;
+}
+
+.profile-navbar{
+    justify-content: center;
+}
+
+.trainer-profile-main-area{
+    align-items: flex-start;
+}
+
+.trainer-card{
+    overflow: auto;
+}
+
+}

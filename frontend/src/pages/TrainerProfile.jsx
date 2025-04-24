@@ -143,7 +143,7 @@ export const TrainerProfile = () => {
                 className={activeTab === "catches" ? "p-active" : ""}
                 onClick={() => setActiveTab("catches")}
               >
-                Pokémon Catches
+                Pokémons
               </button>
             </nav>
           </div>

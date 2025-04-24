@@ -14,15 +14,15 @@ export const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
-    const {isLogin, setIsLogin} = useAppContext();
+    const {isLogin, setIsLogin , userData} = useAppContext();
 
     
     useEffect(() => {
-      console.log(isLogin);
-      if (isLogin) {
+      console.log(userData);
+      if (userData) {
           navigate("/pokepage");
       }
-  }, [isLogin]);
+  }, [userData]);
   
 
     const handleLogin = async(e) => {

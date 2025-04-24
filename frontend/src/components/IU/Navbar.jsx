@@ -42,6 +42,7 @@ const Navbar = () => {
       if(response.data.success === true){
         setIsChecking(false);
         console.log(response.data.data);
+        toast.success("You have caught "+ response.data.data.name + "!");
       }else{
         setIsChecking(false);
         toast.error(response.data.message);

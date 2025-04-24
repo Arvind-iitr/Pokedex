@@ -47,7 +47,7 @@
   }
   
   input {
-    width: 93%;
+    width: 94%;
     padding: 0.8rem;
     font-size: 1rem;
     border: none;
@@ -102,7 +102,7 @@
   .eye{
     position: absolute;
     top: 55%;
-    left: 97%;
+    left: 91%;
   }
 
   /* loading state */

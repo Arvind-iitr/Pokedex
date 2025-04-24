@@ -20,7 +20,8 @@ const getUserData = async() => {
        setUserData(response.data.userdata);
      }
    } catch (error) {
-      // toast.error(error.message);
+    setUserData(null);
+    setIsLogin(false); // <-- This might prevent looping
    }
 }
 
@@ -36,6 +37,7 @@ const getAuthStatus = async() => {
      }
    } catch (error) {
       // toast.error(error.message);
+      setIsLogin(false); // <-- This might prevent looping
    }
 }
 
