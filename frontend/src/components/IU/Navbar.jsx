@@ -39,13 +39,15 @@ const Navbar = () => {
 
       //send the image to gemini route for identification
       const response = await findPokemon(base64Image);
+      console.log(response)
       if(response.data.success === true){
         setIsChecking(false);
         console.log(response.data.data);
         toast.success("You have caught "+ response.data.data.name + "!");
       }else{
         setIsChecking(false);
-        toast.error(response.data.message);
+        toast.error("Please Try Again Later");
+        console.log(error)
       }
       
     } catch (error) {

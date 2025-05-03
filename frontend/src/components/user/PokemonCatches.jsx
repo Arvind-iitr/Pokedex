@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../../styles/PokemonCatches.css"
 import { useAppContext } from '../../context/AppContext'
 import { getPokemonImageUrl } from '../../utils/helperFunctions';
+import { Loader } from '../IU/Loader';
 
 export const PokemonCatches = () => {
   const { userData } = useAppContext();
@@ -21,13 +22,8 @@ export const PokemonCatches = () => {
 
 
 
-
-
-
-
-
   //laoding state
-  if (!userData) return <div>Loading...</div>
+  if (!userData) return <Loader/>
 
   return (
     <div className='pokemon-catches-wrapper'>

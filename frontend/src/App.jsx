@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { MainSite } from './pages/MainSite';
 import { PokemonDetail } from './pages/PokemonDetail';
 import { TrainerProfile } from './pages/TrainerProfile';
+import { UpdateInfo } from './pages/UpdateInfo';
 
 
 // import { PokemonChart } from "../Charts/PokemonChart";
@@ -63,6 +64,11 @@ function App() {
     {
       path :"/profile",
       element: <TrainerProfile/>
+    },
+
+    {
+      path: "/update-trainer-info",
+      element: <UpdateInfo/>
     }
 
     

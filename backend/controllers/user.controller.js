@@ -63,3 +63,19 @@ export const updateProfile = async (req, res) => {
         console.log("Error in updateProfile:", error);
     }
 }
+
+
+export const updateInfo = async (req, res) => {
+    try {
+        const userID = res.locals.userId;
+        const {height , weight , gender , hometown , trainerType , favPokemon , age} = req.body;
+
+        const user =  await User.findByIdAndUpdate(userID, { height, weight, gender, hometown, trainerType, favPokemon, age }, { new: true });
+      
+        res.json({ success: true, message: 'User information updated successfully', user });
+      
+      }catch (error) {
+        res.json({ success: false, message: error.message });
+        console.log("Error in updateInfo:", error);
+      }  
+}

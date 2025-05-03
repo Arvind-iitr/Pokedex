@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
   profilePic: { type: String, default: "" }, // URL or filename
   height: { type: Number, default: null }, // in cm or inches
   weight: { type: Number, default: null }, // in kg or lbs
-  gender: { type: String, enum: ["Male", "Female", "Other", ""], default: "" },
+  gender: { type: String, enum: ["male", "female", "other", ""], default: "" },
   hometown: { type: String, default: "" },
   trainerType: { type: String, default: "" },
   favPokemon: { type: String, default: "" },

@@ -14,5 +14,9 @@ export const getUser = async () => {
 }
 
 export const updateProfile = async (data) => {
-   return api.put('/update-profile', data);
+   return api.put('/update-profile', data);  
+}
+
+export const UpdateData = async(data) => {
+    return api.put('/update-info', data );
 }

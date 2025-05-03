@@ -1,1 +1,0 @@
-//detailed page about every single pokemon

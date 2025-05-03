@@ -10,6 +10,7 @@ import { logout, sendOtp } from '../api/authServices';
 import { updateProfile } from '../api/api';
 import { toast } from 'react-toastify';
 import { PokemonCatches } from '../components/user/PokemonCatches';
+import { Loader } from '../components/IU/Loader';
 
 export const TrainerProfile = () => {
 
@@ -17,6 +18,7 @@ export const TrainerProfile = () => {
 
   const [activeTab, setActiveTab] = useState("about");
   const [isUploading , setIsUploading] = useState(false);
+  const [isSendingOtp , setIsSendingOtp] = useState(false);
   const { userData, isLogin, setIsLogin, getUserData } = useAppContext();
 
   const handleLogout = async () => {  //log out the user and navigate to the home page
@@ -32,9 +34,11 @@ export const TrainerProfile = () => {
 
   //logic for sending verification otp
   const handleSendOtp = async() =>{
+    setIsSendingOtp(true)
     try {
       const res = await sendOtp();
       if(res.data.success === true){
+        setIsSendingOtp(false);
         toast.success("verification OTP sent successfully. Please check spam");
         navigate('/verify-otp');
       }else{
@@ -42,6 +46,8 @@ export const TrainerProfile = () => {
       }
     } catch (error) {
       console.log("error sending otp", error);
+    }finally{
+      setIsSendingOtp(false)
     }
   }
 
@@ -99,7 +105,14 @@ export const TrainerProfile = () => {
   
     reader.readAsDataURL(file); // 🟢 THIS WAS MISSING
   };
+  
 
+  if(isSendingOtp) return(
+    <div>
+      <h1>Sending OTP...</h1>
+      <Loader/>
+    </div>
+  )
 
   return (
     <div className='profile-container'>
@@ -124,7 +137,7 @@ export const TrainerProfile = () => {
           <div className="bhaimon">
             <div className="right-upper-div">
               <div className="trainer-info-container">  
-                <h2>Trainer Name</h2>
+                <h2>{userData?.username}</h2>
                 <h3>Trainer ID: 123456</h3>
               </div>
               <div className="logout-verify">
