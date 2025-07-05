@@ -14,4 +14,6 @@ authRouter.get("/isauth", userAuthenticate, isAuth);
 authRouter.post("/send-reset-otp", sendResetOtp); 
 authRouter.post("/reset-password", resetPassword); 
 
+
+
 export default authRouter;

@@ -17,8 +17,8 @@ export const TrainerProfile = () => {
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("about");
-  const [isUploading , setIsUploading] = useState(false);
-  const [isSendingOtp , setIsSendingOtp] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
   const { userData, isLogin, setIsLogin, getUserData } = useAppContext();
 
   const handleLogout = async () => {  //log out the user and navigate to the home page
@@ -27,26 +27,28 @@ export const TrainerProfile = () => {
       logout();
       navigate('/');
       console.log("logout", res);
+
+
     } catch (error) {
       console.log("logouterr", error);
     }
   }
 
   //logic for sending verification otp
-  const handleSendOtp = async() =>{
+  const handleSendOtp = async () => {
     setIsSendingOtp(true)
     try {
       const res = await sendOtp();
-      if(res.data.success === true){
+      if (res.data.success === true) {
         setIsSendingOtp(false);
         toast.success("verification OTP sent successfully. Please check spam");
         navigate('/verify-otp');
-      }else{
+      } else {
         toast.error(res.data.message);
       }
     } catch (error) {
       console.log("error sending otp", error);
-    }finally{
+    } finally {
       setIsSendingOtp(false)
     }
   }
@@ -54,15 +56,13 @@ export const TrainerProfile = () => {
   //update user profile pic logic
   const fileInputRef = useRef(null);
 
-  const handleClick = () => {
-    fileInputRef.current.click();
-  };
+  const handleClick = () => {fileInputRef.current.click();};
 
   const handleImageUpload = async (event) => {
     setIsUploading(true);
     console.log("uploading", isUploading);
     const file = event.target.files[0];
-  
+
     if (!file) {
       toast.error("Please select an image");
       setIsUploading(false);
@@ -77,13 +77,13 @@ export const TrainerProfile = () => {
       setIsUploading(false);
       return;
     }
-  
+
     const reader = new FileReader();
-  
+
     reader.onloadend = async () => {
       const base64Image = reader.result;
       console.log("base64Image", base64Image);
-  
+
       try {
         const response = await updateProfile({ profilePic: base64Image });
         if (response.data.success === true) {
@@ -102,15 +102,15 @@ export const TrainerProfile = () => {
         console.log("uploading done", isUploading);
       }
     };
-  
+
     reader.readAsDataURL(file); // 🟢 THIS WAS MISSING
   };
-  
 
-  if(isSendingOtp) return(
+
+  if (isSendingOtp) return (
     <div>
       <h1>Sending OTP...</h1>
-      <Loader/>
+      <Loader />
     </div>
   )
 
@@ -136,7 +136,7 @@ export const TrainerProfile = () => {
           </div>
           <div className="bhaimon">
             <div className="right-upper-div">
-              <div className="trainer-info-container">  
+              <div className="trainer-info-container">
                 <h2>{userData?.username}</h2>
                 <h3>Trainer ID: 123456</h3>
               </div>
@@ -164,9 +164,9 @@ export const TrainerProfile = () => {
         </div>
         <div className="trainer-profile-main-area">
           {activeTab === "about" && <AboutUser />}
-          {activeTab === "catches" && <PokemonCatches/>}
+          {activeTab === "catches" && <PokemonCatches />}
         </div>
-      
+
       </div>
 
     </div>

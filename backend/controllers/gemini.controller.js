@@ -17,6 +17,8 @@ export const findPokemon = async (req, res) => {
       res.json({ success: false, message: "User not found" });
     }
 
+
+
     //logic to detect pokemon using gemini vision API
 
     const geminiresponse = await geminiVisionModel.generateContent([
@@ -39,6 +41,11 @@ export const findPokemon = async (req, res) => {
     const pokemonInfo = JSON.parse(cleanedText);
 
     if (pokemonInfo.isValidPokemon) {
+        
+       console.log(`This is user's stamina : ${user.stamina}`) 
+       //use this part to manupulate the stamina for the game.
+
+
         //check if pokemon is already identified by the user already
       const alreadyIdentified = user.identifiedPokemon.find(
         (poke) => poke.name.toLowerCase() === pokemonInfo.name.toLowerCase()
@@ -50,6 +57,8 @@ export const findPokemon = async (req, res) => {
           message: "Pokémon already identified!",
         });
       }
+
+
       //store the image in cloudinary
       const uploadRes = await cloudinary.uploader.upload(pokemonPic);
       //store the pokemon in database
